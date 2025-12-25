@@ -2,14 +2,9 @@ import type { FastifyInstance } from "fastify";
 import type { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
 import { prisma } from "../lib/prisma.ts";
-import dayjs from "dayjs";
-import localizedFormat from "dayjs/plugin/localizedFormat.js";
-import "dayjs/locale/pt-br.js";
 import { getMailClient } from "../lib/mail.ts";
 import nodemailer from "nodemailer";
-
-dayjs.locale("pt-br");
-dayjs.extend(localizedFormat);
+import { dayjs } from "../lib/dayjs.ts";
 
 export async function createTrip(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().post(
