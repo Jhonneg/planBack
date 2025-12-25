@@ -191,6 +191,8 @@ export type TripWhereInput = {
   is_confirmed?: Prisma.BoolFilter<"Trip"> | boolean
   created_at?: Prisma.DateTimeFilter<"Trip"> | Date | string
   participants?: Prisma.ParticipantListRelationFilter
+  activities?: Prisma.ActivityListRelationFilter
+  links?: Prisma.LinkListRelationFilter
 }
 
 export type TripOrderByWithRelationInput = {
@@ -201,6 +203,8 @@ export type TripOrderByWithRelationInput = {
   is_confirmed?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   participants?: Prisma.ParticipantOrderByRelationAggregateInput
+  activities?: Prisma.ActivityOrderByRelationAggregateInput
+  links?: Prisma.LinkOrderByRelationAggregateInput
 }
 
 export type TripWhereUniqueInput = Prisma.AtLeast<{
@@ -214,6 +218,8 @@ export type TripWhereUniqueInput = Prisma.AtLeast<{
   is_confirmed?: Prisma.BoolFilter<"Trip"> | boolean
   created_at?: Prisma.DateTimeFilter<"Trip"> | Date | string
   participants?: Prisma.ParticipantListRelationFilter
+  activities?: Prisma.ActivityListRelationFilter
+  links?: Prisma.LinkListRelationFilter
 }, "id">
 
 export type TripOrderByWithAggregationInput = {
@@ -248,6 +254,8 @@ export type TripCreateInput = {
   is_confirmed?: boolean
   created_at?: Date | string
   participants?: Prisma.ParticipantCreateNestedManyWithoutTripInput
+  activities?: Prisma.ActivityCreateNestedManyWithoutTripInput
+  links?: Prisma.LinkCreateNestedManyWithoutTripInput
 }
 
 export type TripUncheckedCreateInput = {
@@ -258,6 +266,8 @@ export type TripUncheckedCreateInput = {
   is_confirmed?: boolean
   created_at?: Date | string
   participants?: Prisma.ParticipantUncheckedCreateNestedManyWithoutTripInput
+  activities?: Prisma.ActivityUncheckedCreateNestedManyWithoutTripInput
+  links?: Prisma.LinkUncheckedCreateNestedManyWithoutTripInput
 }
 
 export type TripUpdateInput = {
@@ -268,6 +278,8 @@ export type TripUpdateInput = {
   is_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   participants?: Prisma.ParticipantUpdateManyWithoutTripNestedInput
+  activities?: Prisma.ActivityUpdateManyWithoutTripNestedInput
+  links?: Prisma.LinkUpdateManyWithoutTripNestedInput
 }
 
 export type TripUncheckedUpdateInput = {
@@ -278,6 +290,8 @@ export type TripUncheckedUpdateInput = {
   is_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   participants?: Prisma.ParticipantUncheckedUpdateManyWithoutTripNestedInput
+  activities?: Prisma.ActivityUncheckedUpdateManyWithoutTripNestedInput
+  links?: Prisma.LinkUncheckedUpdateManyWithoutTripNestedInput
 }
 
 export type TripCreateManyInput = {
@@ -365,6 +379,34 @@ export type TripUpdateOneRequiredWithoutParticipantsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.TripUpdateToOneWithWhereWithoutParticipantsInput, Prisma.TripUpdateWithoutParticipantsInput>, Prisma.TripUncheckedUpdateWithoutParticipantsInput>
 }
 
+export type TripCreateNestedOneWithoutActivitiesInput = {
+  create?: Prisma.XOR<Prisma.TripCreateWithoutActivitiesInput, Prisma.TripUncheckedCreateWithoutActivitiesInput>
+  connectOrCreate?: Prisma.TripCreateOrConnectWithoutActivitiesInput
+  connect?: Prisma.TripWhereUniqueInput
+}
+
+export type TripUpdateOneRequiredWithoutActivitiesNestedInput = {
+  create?: Prisma.XOR<Prisma.TripCreateWithoutActivitiesInput, Prisma.TripUncheckedCreateWithoutActivitiesInput>
+  connectOrCreate?: Prisma.TripCreateOrConnectWithoutActivitiesInput
+  upsert?: Prisma.TripUpsertWithoutActivitiesInput
+  connect?: Prisma.TripWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TripUpdateToOneWithWhereWithoutActivitiesInput, Prisma.TripUpdateWithoutActivitiesInput>, Prisma.TripUncheckedUpdateWithoutActivitiesInput>
+}
+
+export type TripCreateNestedOneWithoutLinksInput = {
+  create?: Prisma.XOR<Prisma.TripCreateWithoutLinksInput, Prisma.TripUncheckedCreateWithoutLinksInput>
+  connectOrCreate?: Prisma.TripCreateOrConnectWithoutLinksInput
+  connect?: Prisma.TripWhereUniqueInput
+}
+
+export type TripUpdateOneRequiredWithoutLinksNestedInput = {
+  create?: Prisma.XOR<Prisma.TripCreateWithoutLinksInput, Prisma.TripUncheckedCreateWithoutLinksInput>
+  connectOrCreate?: Prisma.TripCreateOrConnectWithoutLinksInput
+  upsert?: Prisma.TripUpsertWithoutLinksInput
+  connect?: Prisma.TripWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TripUpdateToOneWithWhereWithoutLinksInput, Prisma.TripUpdateWithoutLinksInput>, Prisma.TripUncheckedUpdateWithoutLinksInput>
+}
+
 export type TripCreateWithoutParticipantsInput = {
   id?: string
   destination: string
@@ -372,6 +414,8 @@ export type TripCreateWithoutParticipantsInput = {
   ends_at: Date | string
   is_confirmed?: boolean
   created_at?: Date | string
+  activities?: Prisma.ActivityCreateNestedManyWithoutTripInput
+  links?: Prisma.LinkCreateNestedManyWithoutTripInput
 }
 
 export type TripUncheckedCreateWithoutParticipantsInput = {
@@ -381,6 +425,8 @@ export type TripUncheckedCreateWithoutParticipantsInput = {
   ends_at: Date | string
   is_confirmed?: boolean
   created_at?: Date | string
+  activities?: Prisma.ActivityUncheckedCreateNestedManyWithoutTripInput
+  links?: Prisma.LinkUncheckedCreateNestedManyWithoutTripInput
 }
 
 export type TripCreateOrConnectWithoutParticipantsInput = {
@@ -406,6 +452,8 @@ export type TripUpdateWithoutParticipantsInput = {
   ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   is_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activities?: Prisma.ActivityUpdateManyWithoutTripNestedInput
+  links?: Prisma.LinkUpdateManyWithoutTripNestedInput
 }
 
 export type TripUncheckedUpdateWithoutParticipantsInput = {
@@ -415,6 +463,128 @@ export type TripUncheckedUpdateWithoutParticipantsInput = {
   ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   is_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  activities?: Prisma.ActivityUncheckedUpdateManyWithoutTripNestedInput
+  links?: Prisma.LinkUncheckedUpdateManyWithoutTripNestedInput
+}
+
+export type TripCreateWithoutActivitiesInput = {
+  id?: string
+  destination: string
+  starts_at: Date | string
+  ends_at: Date | string
+  is_confirmed?: boolean
+  created_at?: Date | string
+  participants?: Prisma.ParticipantCreateNestedManyWithoutTripInput
+  links?: Prisma.LinkCreateNestedManyWithoutTripInput
+}
+
+export type TripUncheckedCreateWithoutActivitiesInput = {
+  id?: string
+  destination: string
+  starts_at: Date | string
+  ends_at: Date | string
+  is_confirmed?: boolean
+  created_at?: Date | string
+  participants?: Prisma.ParticipantUncheckedCreateNestedManyWithoutTripInput
+  links?: Prisma.LinkUncheckedCreateNestedManyWithoutTripInput
+}
+
+export type TripCreateOrConnectWithoutActivitiesInput = {
+  where: Prisma.TripWhereUniqueInput
+  create: Prisma.XOR<Prisma.TripCreateWithoutActivitiesInput, Prisma.TripUncheckedCreateWithoutActivitiesInput>
+}
+
+export type TripUpsertWithoutActivitiesInput = {
+  update: Prisma.XOR<Prisma.TripUpdateWithoutActivitiesInput, Prisma.TripUncheckedUpdateWithoutActivitiesInput>
+  create: Prisma.XOR<Prisma.TripCreateWithoutActivitiesInput, Prisma.TripUncheckedCreateWithoutActivitiesInput>
+  where?: Prisma.TripWhereInput
+}
+
+export type TripUpdateToOneWithWhereWithoutActivitiesInput = {
+  where?: Prisma.TripWhereInput
+  data: Prisma.XOR<Prisma.TripUpdateWithoutActivitiesInput, Prisma.TripUncheckedUpdateWithoutActivitiesInput>
+}
+
+export type TripUpdateWithoutActivitiesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  destination?: Prisma.StringFieldUpdateOperationsInput | string
+  starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  is_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  participants?: Prisma.ParticipantUpdateManyWithoutTripNestedInput
+  links?: Prisma.LinkUpdateManyWithoutTripNestedInput
+}
+
+export type TripUncheckedUpdateWithoutActivitiesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  destination?: Prisma.StringFieldUpdateOperationsInput | string
+  starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  is_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  participants?: Prisma.ParticipantUncheckedUpdateManyWithoutTripNestedInput
+  links?: Prisma.LinkUncheckedUpdateManyWithoutTripNestedInput
+}
+
+export type TripCreateWithoutLinksInput = {
+  id?: string
+  destination: string
+  starts_at: Date | string
+  ends_at: Date | string
+  is_confirmed?: boolean
+  created_at?: Date | string
+  participants?: Prisma.ParticipantCreateNestedManyWithoutTripInput
+  activities?: Prisma.ActivityCreateNestedManyWithoutTripInput
+}
+
+export type TripUncheckedCreateWithoutLinksInput = {
+  id?: string
+  destination: string
+  starts_at: Date | string
+  ends_at: Date | string
+  is_confirmed?: boolean
+  created_at?: Date | string
+  participants?: Prisma.ParticipantUncheckedCreateNestedManyWithoutTripInput
+  activities?: Prisma.ActivityUncheckedCreateNestedManyWithoutTripInput
+}
+
+export type TripCreateOrConnectWithoutLinksInput = {
+  where: Prisma.TripWhereUniqueInput
+  create: Prisma.XOR<Prisma.TripCreateWithoutLinksInput, Prisma.TripUncheckedCreateWithoutLinksInput>
+}
+
+export type TripUpsertWithoutLinksInput = {
+  update: Prisma.XOR<Prisma.TripUpdateWithoutLinksInput, Prisma.TripUncheckedUpdateWithoutLinksInput>
+  create: Prisma.XOR<Prisma.TripCreateWithoutLinksInput, Prisma.TripUncheckedCreateWithoutLinksInput>
+  where?: Prisma.TripWhereInput
+}
+
+export type TripUpdateToOneWithWhereWithoutLinksInput = {
+  where?: Prisma.TripWhereInput
+  data: Prisma.XOR<Prisma.TripUpdateWithoutLinksInput, Prisma.TripUncheckedUpdateWithoutLinksInput>
+}
+
+export type TripUpdateWithoutLinksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  destination?: Prisma.StringFieldUpdateOperationsInput | string
+  starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  is_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  participants?: Prisma.ParticipantUpdateManyWithoutTripNestedInput
+  activities?: Prisma.ActivityUpdateManyWithoutTripNestedInput
+}
+
+export type TripUncheckedUpdateWithoutLinksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  destination?: Prisma.StringFieldUpdateOperationsInput | string
+  starts_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  ends_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  is_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  participants?: Prisma.ParticipantUncheckedUpdateManyWithoutTripNestedInput
+  activities?: Prisma.ActivityUncheckedUpdateManyWithoutTripNestedInput
 }
 
 
@@ -424,10 +594,14 @@ export type TripUncheckedUpdateWithoutParticipantsInput = {
 
 export type TripCountOutputType = {
   participants: number
+  activities: number
+  links: number
 }
 
 export type TripCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   participants?: boolean | TripCountOutputTypeCountParticipantsArgs
+  activities?: boolean | TripCountOutputTypeCountActivitiesArgs
+  links?: boolean | TripCountOutputTypeCountLinksArgs
 }
 
 /**
@@ -447,6 +621,20 @@ export type TripCountOutputTypeCountParticipantsArgs<ExtArgs extends runtime.Typ
   where?: Prisma.ParticipantWhereInput
 }
 
+/**
+ * TripCountOutputType without action
+ */
+export type TripCountOutputTypeCountActivitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ActivityWhereInput
+}
+
+/**
+ * TripCountOutputType without action
+ */
+export type TripCountOutputTypeCountLinksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.LinkWhereInput
+}
+
 
 export type TripSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -456,6 +644,8 @@ export type TripSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   is_confirmed?: boolean
   created_at?: boolean
   participants?: boolean | Prisma.Trip$participantsArgs<ExtArgs>
+  activities?: boolean | Prisma.Trip$activitiesArgs<ExtArgs>
+  links?: boolean | Prisma.Trip$linksArgs<ExtArgs>
   _count?: boolean | Prisma.TripCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["trip"]>
 
@@ -489,6 +679,8 @@ export type TripSelectScalar = {
 export type TripOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "destination" | "starts_at" | "ends_at" | "is_confirmed" | "created_at", ExtArgs["result"]["trip"]>
 export type TripInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   participants?: boolean | Prisma.Trip$participantsArgs<ExtArgs>
+  activities?: boolean | Prisma.Trip$activitiesArgs<ExtArgs>
+  links?: boolean | Prisma.Trip$linksArgs<ExtArgs>
   _count?: boolean | Prisma.TripCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type TripIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -498,6 +690,8 @@ export type $TripPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   name: "Trip"
   objects: {
     participants: Prisma.$ParticipantPayload<ExtArgs>[]
+    activities: Prisma.$ActivityPayload<ExtArgs>[]
+    links: Prisma.$LinkPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -901,6 +1095,8 @@ readonly fields: TripFieldRefs;
 export interface Prisma__TripClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   participants<T extends Prisma.Trip$participantsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trip$participantsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ParticipantPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  activities<T extends Prisma.Trip$activitiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trip$activitiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ActivityPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  links<T extends Prisma.Trip$linksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Trip$linksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LinkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1343,6 +1539,54 @@ export type Trip$participantsArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   distinct?: Prisma.ParticipantScalarFieldEnum | Prisma.ParticipantScalarFieldEnum[]
+}
+
+/**
+ * Trip.activities
+ */
+export type Trip$activitiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Activity
+   */
+  select?: Prisma.ActivitySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Activity
+   */
+  omit?: Prisma.ActivityOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ActivityInclude<ExtArgs> | null
+  where?: Prisma.ActivityWhereInput
+  orderBy?: Prisma.ActivityOrderByWithRelationInput | Prisma.ActivityOrderByWithRelationInput[]
+  cursor?: Prisma.ActivityWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ActivityScalarFieldEnum | Prisma.ActivityScalarFieldEnum[]
+}
+
+/**
+ * Trip.links
+ */
+export type Trip$linksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Link
+   */
+  select?: Prisma.LinkSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Link
+   */
+  omit?: Prisma.LinkOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LinkInclude<ExtArgs> | null
+  where?: Prisma.LinkWhereInput
+  orderBy?: Prisma.LinkOrderByWithRelationInput | Prisma.LinkOrderByWithRelationInput[]
+  cursor?: Prisma.LinkWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.LinkScalarFieldEnum | Prisma.LinkScalarFieldEnum[]
 }
 
 /**

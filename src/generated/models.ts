@@ -10,4 +10,6 @@
  */
 export type * from './models/Trip.ts'
 export type * from './models/Participant.ts'
+export type * from './models/Activity.ts'
+export type * from './models/Link.ts'
 export type * from './commonInputTypes.ts'

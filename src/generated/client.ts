@@ -54,3 +54,13 @@ export type Trip = Prisma.TripModel
  * 
  */
 export type Participant = Prisma.ParticipantModel
+/**
+ * Model Activity
+ * 
+ */
+export type Activity = Prisma.ActivityModel
+/**
+ * Model Link
+ * 
+ */
+export type Link = Prisma.LinkModel
