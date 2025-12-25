@@ -5,6 +5,7 @@ import { prisma } from "../lib/prisma.ts";
 import { dayjs } from "../lib/dayjs.ts";
 import { getMailClient } from "../lib/mail.ts";
 import nodemailer from "nodemailer";
+import { ClientError } from "../errors/client-error.ts";
 
 export async function createInvite(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().post(
@@ -28,7 +29,7 @@ export async function createInvite(app: FastifyInstance) {
       });
 
       if (!trip) {
-        throw new Error("trip not found");
+        throw new ClientError("trip not found");
       }
 
       const participant = await prisma.participant.create({

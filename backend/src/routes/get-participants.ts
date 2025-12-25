@@ -3,6 +3,7 @@ import type { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
 import { prisma } from "../lib/prisma.ts";
 import { dayjs } from "../lib/dayjs.ts";
+import { ClientError } from "../errors/client-error.ts";
 
 export async function getParticipants(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().get(
@@ -32,7 +33,7 @@ export async function getParticipants(app: FastifyInstance) {
       });
 
       if (!trip) {
-        throw new Error("trip not found");
+        throw new ClientError("trip not found");
       }
 
       return { participants: trip.participants };

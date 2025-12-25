@@ -2,6 +2,7 @@ import type { FastifyInstance } from "fastify";
 import type { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
 import { prisma } from "../lib/prisma.ts";
+import { ClientError } from "../errors/client-error.ts";
 
 export async function getParticipant(app: FastifyInstance) {
   app.withTypeProvider<ZodTypeProvider>().get(
@@ -28,7 +29,7 @@ export async function getParticipant(app: FastifyInstance) {
       });
 
       if (!participant) {
-        throw new Error("paritcipant not found");
+        throw new ClientError("paritcipant not found");
       }
 
       return { participant };
