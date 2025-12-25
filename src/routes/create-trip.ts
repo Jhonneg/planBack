@@ -4,9 +4,11 @@ import { z } from "zod";
 import { prisma } from "../lib/prisma.ts";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat.js";
+import "dayjs/locale/pt-br.js";
 import { getMailClient } from "../lib/mail.ts";
 import nodemailer from "nodemailer";
 
+dayjs.locale("pt-br");
 dayjs.extend(localizedFormat);
 
 export async function createTrip(app: FastifyInstance) {
@@ -68,6 +70,8 @@ export async function createTrip(app: FastifyInstance) {
       const formattedStartDate = dayjs(starts_at).format("LL");
       const formattedEndDate = dayjs(ends_at).format("LL");
 
+      const confirmationLink = `http://localhost:3333/trips/${trip.id}/confirm`;
+
       const mail = await getMailClient();
 
       const message = await mail.sendMail({
@@ -86,7 +90,7 @@ export async function createTrip(app: FastifyInstance) {
                   <p>Para confirmar sua viagem, clique no link abaixo:</p>
                   <p></p>
                   <p>
-                      <a href="">Confirmar viagem</a>
+                      <a href="${confirmationLink}">Confirmar viagem</a>
                   </p>
                   <p></p>
                   <p>Caso você não saiba do que se trata esse e-mail, apenas ignore esse e-mail.</p>
