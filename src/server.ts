@@ -1,4 +1,5 @@
 import fastify from "fastify";
+import cors from "@fastify/cors";
 import { createTrip } from "./routes/create-trip.ts";
 import {
   validatorCompiler,
@@ -7,6 +8,10 @@ import {
 import { confirmTrip } from "./routes/confirm-trip.ts";
 
 const app = fastify();
+
+app.register(cors, {
+  origin: true,
+});
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
