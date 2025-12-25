@@ -9,4 +9,5 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/Trip.ts'
+export type * from './models/Participant.ts'
 export type * from './commonInputTypes.ts'

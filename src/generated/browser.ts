@@ -22,3 +22,8 @@ export * from './enums.ts';
  * 
  */
 export type Trip = Prisma.TripModel
+/**
+ * Model Participant
+ * 
+ */
+export type Participant = Prisma.ParticipantModel

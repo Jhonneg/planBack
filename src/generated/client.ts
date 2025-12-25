@@ -49,3 +49,8 @@ path.join(process.cwd(), "src/generated/libquery_engine-debian-openssl-3.0.x.so.
  * 
  */
 export type Trip = Prisma.TripModel
+/**
+ * Model Participant
+ * 
+ */
+export type Participant = Prisma.ParticipantModel
