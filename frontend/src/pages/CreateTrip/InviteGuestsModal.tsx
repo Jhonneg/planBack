@@ -2,7 +2,7 @@ import { AtSign, Plus, X } from "lucide-react";
 import type { FormEvent } from "react";
 
 interface InviteGuestModalProps {
-  closeGuestModal: () => void;
+  closeGuestsModal: () => void;
   emailsToInvite: string[];
   addNewEmailToInvite: (event: FormEvent<HTMLFormElement>) => void;
   removeEmailFromInvites: (email: string) => void;
@@ -10,7 +10,7 @@ interface InviteGuestModalProps {
 
 export default function InviteGuestsModal({
   addNewEmailToInvite,
-  closeGuestModal,
+  closeGuestsModal,
   emailsToInvite,
   removeEmailFromInvites,
 }: InviteGuestModalProps) {
@@ -20,7 +20,7 @@ export default function InviteGuestsModal({
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-semibold">Selecionar convidados</h2>
-            <button type="button" onClick={closeGuestModal}>
+            <button type="button" onClick={closeGuestsModal}>
               <X className="size-5 text-zinc-400" />
             </button>
           </div>
