@@ -1,12 +1,10 @@
-import {
-  Calendar, MapPin,
-  Plus,
-  Settings2
-} from "lucide-react";
+import { Plus } from "lucide-react";
 import { useState } from "react";
 import CreateActivityModal from "./CreateActivityModal";
 import ImportantLinks from "./ImportantLinks";
 import Guests from "./Guests";
+import Activities from "./Activities";
+import DestinationAndDateHeader from "./DestinationAndDateHeader";
 
 export default function TripDetailsPage() {
   const [isCreateActivityModalOpen, setIsCreateActivityModalOpen] =
@@ -22,29 +20,7 @@ export default function TripDetailsPage() {
 
   return (
     <div className="max-w-6xl px-6 py-10 mx-auto space-y-8">
-      <div
-        className="px-4 h-16 rounded-lg bg-zinc-900 shadow-shape 
-      flex items-center justify-between"
-      >
-        <div className="flex items-center gap-2">
-          <MapPin className="size-5 text-zinc-400" />
-          <span className="text-zinc-100">Florianópolis, Brasil</span>
-        </div>
-
-        <div className="flex items-center gap-5">
-          <div className="flex items-center gap-2">
-            <Calendar className="size-5 text-zinc-400" />
-            <span className="text-zinc-100">17 a 23 de Agosto</span>
-          </div>
-
-          <div className="w-px h-6 bg-zinc-800" />
-
-          <button className="bg-zinc-800 text-zing-200 rounded-lg px-5 py-2 font-medium flex items-center gap-2 hover:bg-zinc-700">
-            Alterar local/data
-            <Settings2 className="size-5" />
-          </button>
-        </div>
-      </div>
+      <DestinationAndDateHeader />
 
       <main className="flex gap-16 px-4">
         <div className="flex-1 space-y-6">
@@ -58,7 +34,7 @@ export default function TripDetailsPage() {
               Cadastrar Atividade
             </button>
           </div>
-          
+          <Activities />
         </div>
         <div className="w-80 space-y-6">
           <ImportantLinks />
