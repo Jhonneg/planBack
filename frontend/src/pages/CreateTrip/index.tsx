@@ -2,8 +2,8 @@ import { useState, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import InviteGuestsModal from "./InviteGuestsModal";
 import ConfirmTripModal from "./ConfirmTripModal";
-import DestinationAndDateStep from "../Steps/DestinationAndDateStep";
-import InviteGuestsStep from "../Steps/InviteGuestsStep";
+import DestinationAndDateStep from "./Steps/DestinationAndDateStep";
+import InviteGuestsStep from "./Steps/InviteGuestsStep";
 
 export default function CreateTripPage() {
   const navigate = useNavigate();
