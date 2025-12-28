@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Jhonneg/planBack/issues"
   },
-  "homepage": "https://github.com/Jhonneg/planBack#readme"
+  "homepage": "https://github.com/Jhonneg/planBack#readme",
+  "dependencies": {
+    "axios": "^1.13.2"
+  }
 }

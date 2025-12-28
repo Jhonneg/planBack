@@ -7,19 +7,22 @@ import { format } from "date-fns";
 
 interface DestinationAndDateStepProps {
   isGuestInputOpen: boolean;
+  eventStartAndEndDates: DateRange | undefined;
   closeGuestsInput: () => void;
   openGuestsInput: () => void;
+  setDestination: (destination: string) => void;
+  setEventStartAndEndDates: (dates: DateRange | undefined) => void;
 }
 
 export default function DestinationAndDateStep({
   isGuestInputOpen,
   closeGuestsInput,
   openGuestsInput,
+  setDestination,
+  eventStartAndEndDates,
+  setEventStartAndEndDates,
 }: DestinationAndDateStepProps) {
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
-  const [eventStartAndEndDates, setEventStartAndEndDates] = useState<
-    DateRange | undefined
-  >();
 
   function openDatePicker() {
     return setIsDatePickerOpen(true);
@@ -46,6 +49,7 @@ export default function DestinationAndDateStep({
           type="text"
           placeholder="Para onder você vai"
           className="bg-transparent text-lg placeholder-zinc-400 outline-none"
+          onChange={(event) => setDestination(event.target.value)}
         />
       </div>
       <button
@@ -72,6 +76,7 @@ export default function DestinationAndDateStep({
             </div>
 
             <DayPicker
+              required
               mode="range"
               selected={eventStartAndEndDates}
               onSelect={setEventStartAndEndDates}
