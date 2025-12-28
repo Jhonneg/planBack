@@ -42,8 +42,8 @@ export async function getActivity(app: FastifyInstance) {
         const date = dayjs(trip.starts_at).add(index, "days");
         return {
           date: date.toDate(),
-          activities: trip.activities.filter((activities) => {
-            return dayjs(trip.starts_at).isSame(date, "day");
+          activities: trip.activities.filter((activity) => {
+            return dayjs(activity.occurs_at).isSame(date, "day");
           }),
         };
       });
