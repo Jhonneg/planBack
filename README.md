@@ -125,11 +125,3 @@ The backend exposes the following main API endpoints:
 *   `PUT /trips/:tripId`: Update trip details.
 *   `GET /trips/:tripId`: Get trip details.
 *   `GET /participants/:participantId`: Get participant details.
-
-## Contributing
-
-Feel free to open issues or submit pull requests.
-
-## License
-
-ISC
